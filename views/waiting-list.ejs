@@ -1,0 +1,27 @@
+<%- include('./includes/header.ejs') %>
+<div class="table-responsive">
+    <table id="datatable" class="table table-striped" data-toggle="data-table">
+       <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Mobile Number</th>
+          </tr>
+       </thead>
+       <tbody>
+
+            <% bookings.forEach(function(booking) { %>
+                <tr>
+                    <td><%= booking.fullName %></td>
+                    <td><%= booking.email %></td>
+                    <td><%= booking.dob %></td>
+                    <td><%= booking.mobileNumber %></td>
+                    <!-- Add more cells for additional details -->
+                </tr>
+            <% }) %>
+       </tbody>
+  </table>     
+
+
+<%- include('./includes/footer.ejs') %>

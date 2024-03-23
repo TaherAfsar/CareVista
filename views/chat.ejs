@@ -1,0 +1,29 @@
+<%- include('./includes/header.ejs') %>
+
+<div class="container">
+    <div>
+        <div class="row">
+    <h1>Chat Response</h1>
+    <div class="card-body">
+
+        
+        <!-- Form to input prompt -->
+        <form action="/chat" method="POST">
+            <div class="form-group">  
+                <label class="form-label" for="prompt">Enter your prompt:</label>
+                <input class="form-control" type="text" id="prompt" name="prompt" required>
+                <button class="btn btn-primary mt-4" type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="card">
+        <div class="response" style="margin: 10px;">
+            <h2 class="mt-4" style="margin-left: 20px;">Response</h2>
+            <p class="mt-4" style="margin-left: 20px;"><%- response.response %></p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+<%- include('./includes/footer.ejs') %>

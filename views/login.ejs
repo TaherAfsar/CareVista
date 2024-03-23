@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/core/libs.min.css" />
+    <link rel="stylesheet" href="/vendor/aos/dist/aos.css" />
+    <link rel="stylesheet" href="/css/hope-ui.min.css?v=1.2.0" />
+    <link rel="stylesheet" href="/css/custom.min.css?v=1.2.0" />
+    <link rel="stylesheet" href="/css/dark.min.css"/>
+    <link rel="stylesheet" href="/css/customizer.min.css" />
+    <link rel="stylesheet" href="/css/rtl.min.css"/>
+    <link rel="stylesheet" href="/css/quill.snow.css">
+    <link rel="stylesheet" href="/css/login.css"> <!-- New CSS file for login page -->
+    <style>
+        .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make the container full height of the viewport */
+}
+
+.card {
+    width: 80%; /* Adjust the width of the card as needed */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <% if (message) { %>
+            <p><%= message %></p>
+        <% } %>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <div class="header-title">
+                    <h4 class="card-title" style="color: #56B3FF;">Login Here</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <form method="post" action="/login">
+                            <div class="form-group mb-6" style="margin-bottom: 40px;">
+                                <input type="email" class="form-control form-control-lg" id="email1"
+                                    placeholder="Enter your email address" name="email">
+                            </div>
+                            <div class="form-group " style="margin-bottom: 40px;">
+                                <input type="password" class="form-control form-control-lg" id="name"
+                                    placeholder="Enter Your Password" name="password">
+                            </div>
+                            <div class="form-group mb-6">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="/assets/images/contact.svg" height="100%" alt="" class="mb-4">
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

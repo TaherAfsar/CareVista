@@ -1,0 +1,147 @@
+<%- include('./includes/header.ejs') %>
+<h1>View all bookings</h1>
+<div class="container">
+    <div class="participants-list">
+        <% bookings.forEach(booking => { %>
+            <div class="participant-card">
+                <div class="participant-avatar">
+                    <img src="/assets/images/avatars/avatar_18.jpg" alt="Avatar">
+                </div>
+                <!-- Participant information -->
+                <!-- Modify this structure as per your requirements -->
+                <div class="participant-info" style="color: #000;">
+                    <p>Date: <%= booking.date %></p>
+                    <p>Doctor ID: <%= booking.doctorId %></p>
+                    <p>Start Time: <%= booking.startTime %></p>
+                    <p>End Time: <%= booking.endTime %></p>
+                    <p>Patient ID: <%= booking.patientId %></p>
+                    <p>Fees: <%= booking.fees %></p>
+                </div>
+                <!-- Add view invoice button -->
+                <form action="/invoice/<%= booking.id %>" method="GET">       
+                    <button type="submit"  class="accept-button"> <strong>View Invoice</strong></button>
+                </form>
+                <form action="/cancel-booking/<%= booking.id %>" method="POST">       
+                    <button type="submit" id="cancelBooking" class="reject-button"> <strong>Cancel Booking</strong></button>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .participants-list {
+        max-width: 800px;
+        width: 100%;
+       
+        margin-top: px;
+        /* Set a fixed height */
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+    }
+
+
+    .participant-card {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #6196A6;
+        padding: 10px;
+        margin-bottom: 30px;
+        position: relative;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    }
+
+    .participant-avatar img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .participant-info {
+        flex-grow: 1;
+    }
+
+    .participant-name {
+        margin: 0;
+        color: #000;
+        font-size: 17px;
+    }
+
+    .participant-job,
+    .participant-cgpa {
+        margin: 5px 0;
+        color: #000;
+    }
+
+    .accept-button,
+    .reject-button {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 100px;
+        /* Adjust button width as needed */
+        height: 50px;
+        /* Adjust button height as needed */
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+        color: white;
+        cursor: pointer;
+    }
+
+    .accept-button {
+        background-color: #6196A6;
+        right: 130px;
+        /* Adjust position */
+    }
+
+    .reject-button {
+        background-color: #B65353;
+        /* Change color as needed */
+        right: 10px;
+        /* Adjust position */
+    }
+
+    #bottone1 {
+ padding-left: 33px;
+ padding-right: 33px;
+ padding-bottom: 26px;
+ padding-top: 26px;
+ border-radius: 9px;
+ margin-right: 10px;
+ background: #A4CE95;
+ border: none;
+ font-family: inherit;
+ text-align: center;
+ cursor: pointer;
+ transition: 0.4s;
+}
+
+#bottone1:hover {
+ box-shadow: 7px 5px 56px -14px #C3D900;
+}
+
+#bottone1:active {
+ transform: scale(0.97);
+ box-shadow: 7px 5px 56px -10px #C3D900;
+}
+</style>
+
+<%- include('./includes/footer.ejs') %>
